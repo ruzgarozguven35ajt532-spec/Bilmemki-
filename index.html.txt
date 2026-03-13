@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berenime ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Arka plan kalp animasyonu */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 51, 102, 0.3);
+            display: inline-block;
+            height: 30px;
+            margin: 0 10px;
+            position: relative;
+            transform: rotate(-45deg);
+            width: 30px;
+            animation: float 10s infinite linear;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            background: inherit;
+            border-radius: 50%;
+            height: 30px;
+            position: absolute;
+            width: 30px;
+        }
+
+        .heart:before { top: -15px; left: 0; }
+        .heart:after { left: 15px; top: 0; }
+
+        @keyframes float {
+            0% { transform: rotate(-45deg) translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: rotate(-45deg) translateY(-100vh) scale(1.2); opacity: 0; }
+        }
+
+        /* İçerik düzeni */
+        .container {
+            max-width: 800px;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #ff3366;
+            text-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+            margin-bottom: 50px;
+        }
+
+        .lyrics {
+            font-size: 1.5rem;
+            line-height: 2;
+            white-space: pre-line;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 51, 102, 0.2);
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: fadeIn 3s ease-in;
+        }
+
+        .highlight {
+            color: #ff3366;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-bottom: 30px;
+            font-style: italic;
+            color: #ff3366;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hearts" id="heartContainer"></div>
+
+    <div class="container">
+        <h1>Beren'e Özel ❤️</h1>
+        
+        <div class="lyrics">
+            Artık gizleme benden
+            Seviyorsun sen de benim gibi
+            Göster bak ben ezelden vurgun
+            Ah deliler gibi
+
+            Böyle, yangın içerden sarmış
+            Bak kül eder beni
+            Gönlüm tenhada kalmış
+            Bekler ah deliler gibi
+
+            <span class="highlight">Bir güldün beni geri döndürdün</span>
+            Beni bulamaz derdim yine başa döndürdün
+            Bahçemde bir güldün beni geri döndürdün
+            Hayır olamaz derdim beni taşa döndürdün
+
+            Artık gizleme benden
+            Seviyorsun sen de benim gibi
+            Göster bak ben ezelden vurgun
+            Ah deliler gibi
+
+            Böyle, yangın içerden sarmış
+            Bak kül eder beni
+            Gönlüm tenhada kalmış
+            Bekler ah deliler gibi
+
+            <span class="highlight">Bir güldün beni geri döndürdün</span>
+            Beni bulamaz derdim yine başa döndürdün
+            Bahçemde bir güldün beni geri döndürdün
+            Hayır olamaz derdim beni taşa döndürdün
+
+            Gizleme benden artık olanları
+            Yok gelemem yine bak ben ezelden sevdalarda
+            Savrulurum yine gönlüm eser deli
+            Yok bi' yol olmasın ah dönemem geri sevdalardan
+
+            <span class="highlight">Bir güldün beni geri döndürdün</span>
+            Beni bulamaz derdim yine başa döndürdün
+            Bahçemde bir güldün beni geri döndürdün
+            Hayır olamaz derdim yine taşa döndürdün
+        </div>
+
+        <footer>~ Rüzgar'dan Beren'e sonsuz sevgiyle...</footer>
+    </div>
+
+    <script>
+        // Rastgele kalpler oluşturma
+        function createHeart() {
+            const container = document.getElementById('heartContainer');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            heart.style.opacity = Math.random();
+            
+            container.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 10000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
